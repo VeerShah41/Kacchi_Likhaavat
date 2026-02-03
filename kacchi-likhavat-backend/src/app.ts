@@ -1,14 +1,23 @@
-import express, { Request, Response } from "express";
+import express, { Application } from "express";
+import cors from "cors";
+import authRoutes from "./routes/auth.routes";
 
-const app = express();
+const app: Application = express();
 
+/* ---------- Global Middlewares ---------- */
+
+// Parse incoming JSON
 app.use(express.json());
 
-app.get("/health", (req: Request, res: Response) => {
-  res.status(200).json({
-    status: "ok",
-    message: "Kacchi Likhaavat backend healthy"
-  });
+// Enable CORS
+app.use(cors());
+
+/* ---------- Health Check ---------- */
+
+app.get("/", (_req, res) => {
+  res.send("Likhavaat API is running 🚀");
 });
+app.use("/api/auth", authRoutes);
+
 
 export default app;
