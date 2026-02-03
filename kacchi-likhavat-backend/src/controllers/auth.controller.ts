@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import User from "../models/User";
 
 /**
- * @route   POST /api/auth/register
+ * @route   POST /api/auth/register/
  * @desc    Register new user
  * @access  Public
  */
