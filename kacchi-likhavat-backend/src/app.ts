@@ -1,23 +1,9 @@
-import express, { Application } from "express";
-import cors from "cors";
-import authRoutes from "./routes/auth.routes";
+import express from "express";
+import roomRoutes from "./routes/room.routes";
 
-const app: Application = express();
-
-/* ---------- Global Middlewares ---------- */
-
-// Parse incoming JSON
+const app = express();
 app.use(express.json());
 
-// Enable CORS
-app.use(cors());
-
-/* ---------- Health Check ---------- */
-
-app.get("/", (_req, res) => {
-  res.send("Likhavaat API is running 🚀");
-});
-app.use("/api/auth", authRoutes);
-
+app.use("/api/rooms", roomRoutes);
 
 export default app;
