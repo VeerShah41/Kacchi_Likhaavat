@@ -8,6 +8,7 @@ import {
     updateRoom,
     deleteRoom
 } from "../controllers/room.controller";
+import { getNotesByRoom } from "../controllers/note.controller";
 
 const router = Router();
 
@@ -37,6 +38,12 @@ router.get("/:id", getRoom);
  * @desc    Update room content/title
  */
 router.put("/:id", updateRoom);
+
+/**
+ * @route   GET /api/rooms/:roomId/notes
+ * @desc    Get all notes in a specific room
+ */
+router.get("/:roomId/notes", getNotesByRoom);
 
 /**
  * @route   DELETE /api/rooms/:id
