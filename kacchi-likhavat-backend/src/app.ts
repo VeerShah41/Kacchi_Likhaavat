@@ -2,6 +2,13 @@ import express, { Request, Response, NextFunction } from "express";
 import cors from "cors";
 import authRoutes from "./routes/auth.routes";
 import roomRoutes from "./routes/room.routes";
+import dashboardRoutes from "./routes/dashboard.routes";
+import noteRoutes from "./routes/note.routes";
+import storyRoutes from "./routes/story.routes";
+import expenseRoutes from "./routes/expense.routes";
+import memoryRoutes from "./routes/memory.routes";
+import userProfileRoutes from "./routes/user-profile.routes";
+import searchRoutes from "./routes/search.routes";
 
 const app = express();
 
@@ -35,14 +42,28 @@ app.get("/", (req: Request, res: Response) => {
         version: "1.0.0",
         endpoints: {
             auth: "/api/auth",
+            dashboard: "/api/dashboard",
             rooms: "/api/rooms",
+            notes: "/api/notes",
+            stories: "/api/stories",
+            expenses: "/api/expenses",
+            memories: "/api/memories",
+            users: "/api/users",
+            search: "/api/search",
         },
     });
 });
 
 // API routes
 app.use("/api/auth", authRoutes);
+app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/rooms", roomRoutes);
+app.use("/api/notes", noteRoutes);
+app.use("/api/stories", storyRoutes);
+app.use("/api/expenses", expenseRoutes);
+app.use("/api/memories", memoryRoutes);
+app.use("/api/users", userProfileRoutes);
+app.use("/api/search", searchRoutes);
 
 // =====================
 // Error Handling
