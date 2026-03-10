@@ -1,0 +1,16 @@
+node_modules
+dist
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Editor
+.vscode/*
+.DS_Store
